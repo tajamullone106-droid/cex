@@ -6,13 +6,13 @@
 import os
 import re
 import yt_dlp
-from anony.core.arc import download as arc_download
 import random
 import asyncio
 import aiohttp
 from pathlib import Path
 
 from py_yt import Playlist, VideosSearch
+from api.arc import search_arc
 
 from anony import logger
 from anony.helpers import Track, utils
@@ -155,14 +155,15 @@ class YouTube:
                 "format": "bestaudio[ext=webm][acodec=opus]",
             }
 
-        async def _download():
-            arc_url = await arc_download(url)
+        def _download():
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                try:
+                    ydl.download([url])
+                except (yt_dlp.utils.DownloadError, yt_dlp.utils.ExtractorError):
+                    return None
+                except Exception as ex:
+                    logger.warning("Download failed: %s", ex)
+                    return None
+            return filename
 
-            if arc_url:
-                return arc_url
-
-            logger.warning("Arc API failed")
-            return None
-
-        return await _download()
-
+        return await asyncio.to_thread(_download)
