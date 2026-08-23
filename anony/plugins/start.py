@@ -1,3 +1,4 @@
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 # Copyright (c) 2025 AnonymousX1025
 # Licensed under the MIT License.
 # This file is part of AnonXMusic
@@ -55,6 +56,7 @@ async def start(_, message: types.Message):
         await db.add_chat(message.chat.id)
 
 
+
 @app.on_message(filters.command(["playmode", "settings"]) & filters.group & ~app.bl_users)
 @lang.language()
 async def settings(_, message: types.Message):
@@ -79,7 +81,24 @@ async def _new_member(_, message: types.Message):
     await asyncio.sleep(3)
     for member in message.new_chat_members:
         if member.id == app.id:
-            if await db.is_chat(message.chat.id):
-                return
             await utils.send_log(message, True)
-            await db.add_chat(message.chat.id)
+            if not await db.is_chat(message.chat.id):
+                await db.add_chat(message.chat.id)
+
+            await message.reply_text(
+                f"""Thanks for adding me to {message.chat.title}!
+
+I am Aemeath Music — a fast and powerful Telegram music bot.
+
+Enjoy smooth, lag-free music playback with high-quality streaming and advanced features.
+
+Use /help to explore all commands and start playing music.
+
+Join @Axizupdates for more updates.""",
+                reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton(
+                        "Add me to your group",
+                        url=f"https://t.me/{app.username}?startgroup=true"
+                    )]]
+                ),
+            )

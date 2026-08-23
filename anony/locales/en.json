@@ -1,5 +1,5 @@
 {
-    "add_me": "Add me to your group",
+    "add_me": "Add Me",
     "admin_required": "Bot requires the <b>invite users via link</b> permission to work.",
     "admin_cache_wait": "You can only refresh the admin cache once every 10 minutes.",
     "admin_cache_reloading": "Reloading admin cache...",
@@ -105,8 +105,8 @@
     "queue_fetching": "Fetching queue...",
     "restarting": "Restarting...",
     "restarted": "Restart in progress. Don't worry, it'll only take a few seconds… maybe.",
-    "start_pm": "Hey {0},\nThis is {1} !\n\nA music player bot with some awesome and useful features.\n\n<b><i>Click on the help button for more info.</i></b>",
-    "start_gp": "Hey,\nThis is {0}\n\n<u><b>A music player bot with some awesome and useful features.</b></u>",
+    "start_pm": "Hey {0} !\n\nI am <a href=\"https://t.me/AemeathMusicBot\">Aemeath Music</a> — your music maestro.\n\n• A fast, lag-free Telegram music & video player with cute vibes and serious power.\n\nSupported platforms:\n🎵 YouTube · Spotify · Apple Music · SoundCloud · MXPlayer · Deezer · Twitch · Kick\n\nTap Help or Tutorial below to get started — use /lang to change language.",
+    "start_gp": "Hey {0} !\n\nI am <a href=\"https://t.me/AemeathMusicBot\">Aemeath Music</a> — a powerful Telegram music bot.\n\nRunning on a high-performance VPS for fast, smooth and lag-free music playback.\n\nSupports multiple platforms with reliable streaming and advanced features.\n\nEnjoy a fast and stable music experience with quick responses.\n\nJoin @Axizupdates for more updates.",
     "start_settings": "<u><b>{0} settings</b></u>\n\nClick the buttons below to change this chat's current settings.",
     "stats_fetching": "Fetching stats...",
     "stats_sudo": "\n\n<b>Modules:</b> {0}\n<b>Platform:</b> {1}\n<b>Ram usage:</b> <code>{2}MB | {3}GB</code>\n<b>CPU usage:</b> <code>{4}% ({5} cores)</code>\n<b>Storage:</b> <code>{6}GB | {7}GB</code>\n\n<b>Python:</b> <code>v{8}</code>\n<b>Pyrogram:</b> <code>v{9}</code>\n<b>PyTgCalls:</b> <code>v{10}</code>",
